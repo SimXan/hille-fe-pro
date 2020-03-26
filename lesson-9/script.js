@@ -7,7 +7,7 @@ let keys = [
    
     ['value3', 'Hello', true, true, true]
    
-   ];
+];
 function makeObject(keys) {
     let obj = {};
     keys.forEach(function(item) {
@@ -21,17 +21,7 @@ function makeObject(keys) {
     return obj;
 }
    
-//    createObject(keys);
-   
-//    {
-   
-//     value: 42,
-   
-//     value2: true,
-   
-//     value3: 'Hello'
-   
-//    }
+
 
 
 
@@ -82,42 +72,4 @@ function compareObj(obj1, obj2) {
 
     return bool
 }; // true
-
-
-
-
-
-
-
-
-
-
-
-
-// Task 3
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Task 4
-
-
-
-
 

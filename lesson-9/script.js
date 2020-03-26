@@ -51,25 +51,11 @@ let obj2 = {
 
 function compareObj(obj1, obj2) {
     let bool = false;
-    let obj_values1 = Object.values(obj1);
-    let obj_keys1 = Object.keys(obj1);
-    let obj_values2 = Object.values(obj2);
-    let obj_keys2 = Object.keys(obj2);
-    obj_values1.forEach(function(item, i) {
-        if(item === obj_values2[i]) {
-            bool = true;
-        } else {
-            bool = false;
-        }
-    })
-    obj_keys1.forEach(function(item, i) {
-        if(item === obj_keys2[i]) {
-            bool = true;
-        } else {
-            bool = false;
-        }
-    })
-
-    return bool
+    let obj_values1 = String(Object.entries(obj1));
+    let obj_values2 = String(Object.entries(obj2));
+    if(obj_values1 === obj_values2) {
+        bool = true;
+    }
+    return bool;
 }; // true
 

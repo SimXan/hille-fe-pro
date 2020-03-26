@@ -91,7 +91,7 @@ const scheme = [
     ['age', 25],
    
     ['score', 95]
-];
+]
 
 
 
@@ -129,7 +129,7 @@ const scheme2 = {
     name: 'Vasya',
     age: 25,   
     score: 95
-};
+}
 
 function makeArraysFromScheme(obj) {
     let arr = [];
@@ -138,5 +138,6 @@ function makeArraysFromScheme(obj) {
     }
     return arr;
 }
+
 
 

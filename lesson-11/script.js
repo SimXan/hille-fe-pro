@@ -2,9 +2,21 @@
 
 let boxes = document.querySelectorAll('.box');
 let row = document.querySelector('.row');
+// let i = 0;
 boxes.forEach(function(item) {
     item.addEventListener('click', function() {
         
+        // 2 Эта вторая вариация решения задания
+        // if(i % 3 === 0) {
+        //     this.style.background = 'blue'
+        // } else if(i % 3 === 1) {
+        //     this.style.background = 'green';
+        // } else if(i % 3 === 2) {
+        //     this.style.background = 'yellow';
+        // }
+
+        // i++;
+
         if(this.classList.contains('blue')) {
             this.classList.remove('blue');
             this.classList.add('green');
@@ -17,9 +29,9 @@ boxes.forEach(function(item) {
             this.classList.remove('yellow');
             this.classList.add('blue');
         }
-        let $this = this;
-        item.remove();
-        row.appendChild($this);
+        
+        this.remove();
+        row.appendChild(this);
     })
 })
 

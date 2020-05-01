@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .row {
+            width: 100%;
+            float: left;
+        }
+        .container {
+            width: 100%;
+            float: left;
+        }
+        .box {
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+            float: left;
+            transition: all 1s;
+            background: white;
+            text-align: center;
+        }
+        .score {
+            font-size: 30px;
+            text-align: center;
+            line-height: 170px;
+        }
+        .blue {
+            background: blue;
+        }
+        .yellow {
+            background: yellow;
+        }
+        .green {
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="box">
+            <button class="plus" data-plus="+">+</button>
+            <button class="minus" data-minus="-">-</button>
+            <div class="score">0</div>
+        </div>
+        <div class="box">
+            <button class="plus" data-plus="+">+</button>
+            <button class="minus" data-minus="-">-</button>
+            <div class="score">0</div>
+        </div>
+        <div class="box">
+            <button class="plus" data-plus="+">+</button>
+            <button class="minus" data-minus="-">-</button>
+            <div class="score">0</div>
+        </div>
+        <div class="box">
+            <button class="plus" data-plus="+">+</button>
+            <button class="minus" data-minus="-">-</button>
+            <div class="score">0</div>
+        </div>
+        <div class="box">
+            <button class="plus" data-plus="+">+</button>
+            <button class="minus" data-minus="-">-</button>
+            <div class="score">0</div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

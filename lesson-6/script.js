@@ -3,35 +3,38 @@
 let students = [
     {
         name: "Petro",
-        age: 31,
+        age: '1993-08-22',
         sex: "male"
     },
     {
         name: "Tania",
-        age: 48,
+        age: '1973-05-17',
         sex: "famale"
     },
     {
         name: "Sasha",
-        age: 16,
+        age: '1999-11-12',
         sex: "male"
     },
     {
         name: "Daria",
-        age: 15,
+        age: '1988-02-07',
         sex: "famale"
     },
     {
         name: "Maria",
-        age: 24,
+        age: '1997-09-15',
         sex: "famale"
     },
 ];
 
+
 function getAverageAge(arr) {
     let middle = 0;
     for(let i = 0; i < arr.length; i++) {
-        middle += arr[i].age;
+        let bathrday = new Date(arr[i].age).getFullYear();
+        let age = new Date().getFullYear() - bathrday;
+        middle += age;
     }
     middle /= arr.length;
     return middle;
@@ -102,14 +105,16 @@ function isEven(x) {
     return x % 2 === 0;
 } // проверяет на четность
 
-function filter(arr, flag) {
+function filter(arr, isEven) {
     let even_arr = [];
     for(let i = 0; i < arr.length; i++) {
-        if(flag(arr[i])) {
-            even_arr.push(arr[i]);
+        if(isEven(arr[i])) {
+            even_arr[i] = arr[i];
         }
     }
     return even_arr;
 }
 
 console.log(filter(arr2, isEven)); // [2, 4, 6]
+
+

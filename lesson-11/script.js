@@ -52,5 +52,18 @@ boxes.forEach(function(item) {
 
 
 function toggleClass(elem, cls) {
-    elem.classList.toggle(cls);
+    const classes = elem.className.split(' ');
+    const flag = classes.some(function(el) {
+        return el === cls;
+    })
+
+    if (flag) {
+        const classIndex = classes.findIndex(function(el) {
+            return el === cls;
+        });
+        classes.splice(classIndex, 1);
+    } else {
+        classes.push(cls);
+    }
+    elem.className = classes.join(' ')
 }

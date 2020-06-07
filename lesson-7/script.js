@@ -50,7 +50,7 @@ console.log(getNumberOfEven(111)) // 0
 
 function sumAll(...args) {
     let sum = 0;
-    for(let i = 0; i < args.length; i++) {
+    for(let i = 0; i < arguments.length; i++) {
         sum += args[i];
     }
     return sum;
@@ -80,7 +80,7 @@ function mathMinMax(...args) {
     let new_arr = [];
     let min = args[0];
     let max = args[0];
-    for(let i = 0; i < args.length; i++) {
+    for(let i = 0; i < arguments.length; i++) {
         if(min > args[i]) {
             min = args[i];
         }

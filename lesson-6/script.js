@@ -79,7 +79,7 @@ let arr1 = [1,2,3,4,5,6];
 function clone(arr) {
     let new_arr = [];
     for(let i = 0; i < arr.length; i++) {
-        new_arr.push(arr[i]);
+        new_arr[i] = arr[i];
     }
     return new_arr;
 }

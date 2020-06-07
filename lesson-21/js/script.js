@@ -1,101 +1,83 @@
-// Task 1
-
-
-function Fizzbuzz(n) {
-    for(let i = 1; i <= n; i++) {
-        if ((i % 5 === 0) && (i % 3 === 0)) {
-            console.log('fizzbuzz');
-        } else if(i % 3 === 0) {
-            console.log('fizz');
+"use strict"
+        function Student(firstName, secondName, age, marks) {
+            this.firstName = firstName;
+            this.secondName = secondName;
+            this.age = age;
+            this.marks = marks;
+            this.isPresent = new Array(25);
+            this.score = 0;
         }
-        else if (i % 5 === 0) {
-            console.log('buzz');
-        } 
-        else {
-            console.log(i);
-        }
-    }
-}
-
-// Fizzbuzz(30);
 
 
+        Student.prototype = {
 
+            constructor: Student,
+            
+            present : function() {
+                if(this.score < this.isPresent.length) {
+                    this.isPresent[this.score++] = true;
+                }
+            },
+            abent : function() {
+                if(this.score < this.isPresent.length) {
+                    this.isPresent[this.score++] = false;
+                }    
+            },
 
+            getAverageMarks : function() {
+                return this.marks.reduce((acc, current) => {
+                    return acc + current;
+                }) / this.marks.length;
+            },
 
+            getAge : function() {
+                return this.age;
+            },
 
-
-
-
-
-
-
-
-
-
-
-
-// Task 2
-
-
-function filterCharacter(str) {
-    let count = 0;
-    let character = ['a', 'e', 'u', 'i', 'o'];
-    character.forEach(elem => {
-        for(let i = 0; i < str.length; i++) {
-            if(elem === str[i]) {
-                count++;
+            getSummary : function() {
+                let lesson = 0;
+                let visit = 0;
+                this.isPresent.forEach(elem => {
+                    if(elem !== null) {
+                        lesson++;
+                        visit += elem;
+                    }
+                });
+                
+                let averageVisit = visit / lesson;
+                let averageMark = this.getAverageMarks();
+                if(averageVisit > 0.9 && averageMark > 90) {
+                    return 'Молодец';
+                } else if (averageVisit > 0.9 || averageMark > 90) {
+                    return 'Норм';
+                } else {
+                    return 'Можешь лучше';
+                }
             }
         }
-    })
-    // character.forEach(element => {
-    //     element = element.toLowerCase();
-    //     if(str.toLowerCase().indexOf(element) != -1) {
-    //         count++;
-    //     }
-    // })
-    return count;
-}
+
+        Student.prototype.constructor = Student;
+                  
+
+        let student1 = new Student('Vlad', 'Gorin', 65, [75, 70, 7]);
+        let student2 = new Student('Ira', 'Drobyszava', 24, [90, 95, 97]);
+
+        
+        student1.present();
+        student1.present();
+        student1.present();
+        student1.present();
+        student1.abent();
+
+        student2.present();
+        student2.present();
+        student2.present();
+        
+        console.log(student1.getSummary());
+        console.log(student1.getAge());
+        console.log(student2.getSummary());
+        console.log(student2.getAge());
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Task 3
-
-function fibanachi(n) {
-    return n <= 1 ? n : fibanachi(n - 1) + fibanachi(n - 2);
-}
-
-// function fibanachi(n) {
-//     let next = 1;
-//     let prev = 1;
-//     for (let i = 3; i <= n; i++) {
-//         let temp = next;
-//         next = next + prev;
-//         prev = temp;
-//     }
-//     return next;
-//   }
-
-console.log(fibanachi(5));
+        

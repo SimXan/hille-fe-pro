@@ -45,7 +45,10 @@ function printNotes(notes) {
 	todoList.forEach(todoitem => {
 		noteString += `<li class="list-group-item">
 							<label class="item-text">${todoitem.title}</label>
-							<div class="input-group-prepend" style="float: right;">
+							<input class="form-control col-5 edit-input sr-only" value="${todoitem.title}" type="text" style="display: inline;">
+							<div class="input-group-prepend btns-todo-item" style="float: right;">
+								<button class="btn btn-outline-info sr-only update" data-id="${todoitem.id}">Update</button>
+								<button class="btn btn-outline-warning edit">Edit</button>
 								<button class="btn btn-outline-success done" done="${todoitem.done}">Done</button>
 								<button class="btn btn-outline-danger remove" data-id="${todoitem.id}">Remove</button>
 							</div>
@@ -88,8 +91,49 @@ listElement.addEventListener('click', (e) => {
 		printNotes(todoList);
 	}
 
+	if(e.target.classList.contains('edit')) {
+		let edit_btn = e.target;
+		let update_btn = edit_btn.previousElementSibling;
+		let edit_input = edit_btn.parentNode.parentNode.querySelector('.edit-input');
+		let todo_title = edit_input.previousElementSibling;
+		
+		todo_title.classList.add('sr-only');
+		edit_input.classList.remove('sr-only');
+		update_btn.classList.remove('sr-only');
+		edit_btn.classList.add('sr-only');
+	}
+
+	if(e.target.classList.contains('update')) {
+		let update_btn = e.target;
+		let edit_btn = update_btn.nextElementSibling;
+		let todo_id = +update_btn.getAttribute('data-id');
+		let edit_input = update_btn.parentNode.parentNode.querySelector('.edit-input');
+		let todo_title = edit_input.previousElementSibling;
+		let value = edit_input.value.trim();
+		
+		if(value === '') {
+			return;
+		}
+
+		
+		todoList.forEach(el => {
+			if(el.id === todo_id) {
+				el.title = value;
+			}
+		});
+		todo_title.classList.remove('sr-only');
+		edit_input.classList.add('sr-only');
+		update_btn.classList.add('sr-only');
+		edit_btn.classList.remove('sr-only');
+		localStorage.storeNotes = JSON.stringify(todoList);
+		printNotes(todoList);
+	}
+
 	
 });
+
+
+
 
 document.querySelector('.btn-clear').addEventListener('click', function() {
 	todoList.splice(0, todoList.length);

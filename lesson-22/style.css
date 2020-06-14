@@ -3,3 +3,7 @@
 	font-style: italic;
 	color: gray;
 }
+
+.btns-todo-item .btn {
+	margin: 0 5px;
+}

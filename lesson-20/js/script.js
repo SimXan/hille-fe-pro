@@ -7,10 +7,12 @@ window.addEventListener('DOMContentLoaded', function() {
         return response.json();
       })
       .then((data) => {
+        //   console.log(data);
         data.results.forEach((element) => {
             let link = `<a href="#${element.episode_id}" class="link" data-vehicles="${element.vehicles}">${element.title}</a> <br>`;
             list_films.innerHTML += link;
         });
+        // list_films.innerHTML += `<p data-next="${data.next}" class="more">Show More</p>`;
       });
     
       
